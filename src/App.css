@@ -1,282 +1,312 @@
+/* Основные стили для body */
 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Nerko+One&display=swap');
 
 html {
   scroll-behavior: smooth;
 }
 
+
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9;
+  background: linear-gradient(135deg, #ececec 25%, #ffffff 75%);
   color: #333;
-  line-height: 1.6;
+  overflow-x: hidden;
+  
 }
 
+/* Стили для Header */
 header {
-  position: fixed;  
-  top: 0;        
-  left: 0;        
-  right: 0;     
-  background-color: rgba(107, 121, 135, 0.8); 
-  padding: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
   text-align: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1000;   
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeInHeader 1s ease forwards; /* Новая анимация при загрузке */
 }
+
+
+
 header h1 {
-  color: white;
-  font-size: 36px;
-  margin: 0;
+  font-family: "Dancing Script", cursive;
+  font-size: 35px;
+  font-weight: bold;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: slideInDown 1.5s ease forwards;
+}
+
+header a {
+  font-family: "Dancing Script", cursive;
+  animation: slideInDown 1.5s ease forwards;
+  color: #222;
+  margin: 0 20px;
+  text-decoration: none;
+  font-size: 35px;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
 nav a {
-  color: white;
-  margin: 0 15px;
+  font-family: "Dancing Script", cursive;
+  animation: slideInDown 1.5s ease forwards;
+  color: #222;
+  margin: 0 20px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: #ffdd57;
+  color: #f58220;
 }
 
-nav a {
-  color: #fff;
+nav a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #f58220;
+  bottom: -6px;
+  left: 0;
+  transition: width 0.3s ease;
 }
 
-#about {
-  padding-top: 200px;
+nav a:hover::before {
+  width: 100%;
 }
 
+/* Стили для секций */
 section {
-  padding: 60px 20px;
-  max-width: 1100px;
-  margin: auto;
+  padding: 100px 50px;
+  max-width: 1200px;
+  margin: 150px auto 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
+section:hover {
+  transform: translateY(-10px) rotateX(2deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для заголовков */
 h2 {
-  font-size: 28px;
-  color: linear-gradient(135deg, #1f2124, #6bc1ff);
-  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
   position: relative;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+h2::before, h2::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 4px;
+  background-color: #f58220;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h2::before {
+  top: -10px;
 }
 
 h2::after {
-  content: '';
-  width: 50px;
-  height: 3px;
-  background: linear-gradient(135deg, #1f2124, #6bc1ff);
-  display: block;
-  margin-top: 10px;
+  bottom: -10px;
+  width: 80px;
 }
 
+/* Стили для параграфов */
 p {
   font-size: 18px;
   line-height: 1.8;
   text-align: center;
+  margin-bottom: 20px;
+  color: #444;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
+p:hover {
+  transform: translateY(-5px);
+  opacity: 0.8;
+}
+
+/* Эффекты при наведении для секций */
+section:hover h2 {
+  color: #f58220;
+}
+
+section:hover p {
+  color: #666;
+}
+
+/* Стили для списка навыков */
 ul {
   list-style: none;
   padding: 0;
+  text-align: center;
+  margin: 40px 0;
 }
 
 ul li {
-  background: linear-gradient(135deg, #1f2124, #6bc1ff);
-  color: #dedede;
-  padding: 20px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-  text-align-last: center;
+  display: inline-block;
+  margin: 10px 15px;
+  background: linear-gradient(135deg, #f58220, #ff7e5f);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.4s ease;
 }
 
 ul li:hover {
-  transform: translateY(-5px);
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  transform: translateY(-5px) scale(1.05);
 }
 
+/* Стили для about секции */
 .about-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-.about-text {
-  flex: 1;
-  margin-right: 40px;
+  background: #f0f4f8;
+  padding: 60px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 2s ease forwards;
 }
 
 .about-photo img {
-  width: 150px;
-  height: auto;
+  width: 230px;
+  height: 300px;
   border-radius: 10%;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 5px solid #f58220;
+  animation: fadeIn 2s ease forwards;
+  
 }
 
-.skills ul li {
-  display: inline-block;
-  background: linear-gradient(135deg, #1f2124, #6bc1ff);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
-  margin: 5px;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+.about-photo img:hover {
+  transform: translateY(-5px) scale(1.05);
 }
 
-.skills ul li:hover {
-  background: linear-gradient(135deg, #1f2124, #6bc1ff);
-}
-
-footer {
+.about-text {
   text-align: center;
-  padding: 20px;
-  background: linear-gradient(135deg, #1f2124, #6bc1ff);
-  color: white;
-  margin-top: 40px;
-  position: relative;
+  margin-top: 30px;
+  font-size: 20px;
+  color: #333;
 }
 
-footer p {
-  margin: 0;
+/* Стили для Projects секции */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
 }
 
+.projects-container li {
+  background: linear-gradient(145deg, #f0f0f0, #ffffff);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.projects-container li:hover {
+  transform: translateY(-5px) rotate(3deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.projects-container li h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f58220;
+  margin-bottom: 15px;
+}
+
+.projects-container li p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* Стили для контактов */
 #contact a {
-  color: linear-gradient(135deg, #1f2124, #6bc1ff);
+  color: #f58220;
   text-decoration: none;
   font-weight: bold;
+  letter-spacing: 1.2px;
 }
 
 #contact a:hover {
-  color: #ffdd57;
+  color: #ff7e5f;
 }
 
-
-.about-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  background: linear-gradient(135deg, #1f2124, #6bc1ff); /* Градиентный фон */
-  border-radius: 10px; /* Округлённые углы для красивого эффекта */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
-  color: white; /* Сделаем текст белым для контраста */
-}
-
-.about-text {
-  flex: 1;
-  margin-right: 40px;
-}
-
-.about-photo img {
-  width: 150px;
-  height: auto;
-  border-radius: 50%;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-
-@keyframes backgroundAnimation {
+/* Анимации для элементов */
+@keyframes slideInDown {
   0% {
-    background-color: #000000; /* Начальный цвет */
-  }
-  50% {
-    background-color: #211919; /* Промежуточный цвет */
+    transform: translateY(-100%);
+    opacity: 0;
   }
   100% {
-    background-color: #000000; /* Конечный цвет */
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  animation: backgroundAnimation 10s ease infinite; /* Добавляем анимацию фона */
-  color: #9e9e9e;
-  line-height: 1.6;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-header {
-  background: linear-gradient(135deg, #1f2124, #6bc1ff); /* Полупрозрачный цвет для header */
-  padding: 20px;
+/* Footer стили */
+footer {
   text-align: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  background-color: #f0f4f8;
+  color: #777;
+  font-size: 16px;
+  margin-top: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-  color: white;
-  font-size: 36px;
-  margin: 0;
-}
-
-nav button {
-  color: white;
-  margin: 0 15px;
-  background: transparent;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-nav button:hover {
-  color: #ffdd57;
-}
-
-/* Основные стили для всех устройств */
-body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  animation: backgroundAnimation 10s ease infinite;
-  background-color: #000;
-  color: #9e9e9e;
-  line-height: 1.6;
-}
-
-header {
-  background: linear-gradient(135deg, #1f2124, #6bc1ff);
-  padding: 20px;
-  text-align: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-  color: white;
-  font-size: 36px;
-  margin: 0;
-}
-
-nav a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-nav a:hover {
-  color: #ffdd57;
-}
-
-/* Анимация фона */
-@keyframes backgroundAnimation {
-  0% { background-color: #000; }
-  50% { background-color: #211919; }
-  100% { background-color: #000; }
-}
-
-/* Медиа-запросы для планшетов и телефонов */
+/* Адаптивные стили */
 @media (max-width: 768px) {
+  section {
+    padding: 80px 30px;
+  }
+
   header h1 {
     font-size: 28px;
   }
@@ -285,33 +315,12 @@ nav a:hover {
     font-size: 16px;
   }
 
-  section {
-    padding: 40px 10px;
+  .projects-container {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 24px;
-  }
-
-  nav a {
-    font-size: 14px;
-    display: block;
-    margin: 10px 0;
-  }
-
-  .about-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-text, .about-photo {
-    margin: 0;
-    text-align: center;
-  }
-
-  .about-photo img {
-    width: 100px;
-  }
+.links {
+  color: #0e530f9b;
+  text-decoration: none;
 }

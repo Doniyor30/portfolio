@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>My Portfolio</h1>
+        <h1><a href="#about">My Portfolio</a></h1>
         <nav>
           <a href="#about">About Me</a>
           <a href="#projects">Projects</a>
